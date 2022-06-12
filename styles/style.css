@@ -1,3 +1,55 @@
-body{
+* {
+    font-family: sans-serif, Arial, Helvetica, sans-serif;
+}
+
+html {
+    min-height: 100%;
+    background-image: url(../images/jeshoots-com-7VOyZ0-iO0o-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.600);
     margin: auto;
+    border-radius: 12px;
+    padding: 16px 0px;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+    margin: 0;
+    padding: 16px 0px;
+}
+
+button.btn-add {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background-color: rgb(193, 255, 236);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 32px;
+    margin: auto;
+}
+
+button.btn-add:hover {
+    background-color: #9affe1;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    visibility: collapse;
+    margin: 16px 0px;
 }
