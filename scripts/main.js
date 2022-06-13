@@ -10,4 +10,5 @@ addBtn.addEventListener("click", () => {
         addBtn.textContent = "➖ Add Books";
         form.style.visibility = 'visible'
     }
-})
+});
+
