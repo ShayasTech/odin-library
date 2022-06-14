@@ -5,105 +5,167 @@
 html {
     min-height: 100%;
     background-image: url(../images/jeshoots-com-7VOyZ0-iO0o-unsplash.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center center;
     background-size: cover;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.600);
-    margin: auto;
-    border-radius: 12px;
-    padding: 16px 0px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 4fr;
+    height: 97vh;
 }
 
-h1 {
-    color: brown;
+.header {
+    grid-area: 1/1/2/3;
+    background-color: rgba(216, 112, 147, 0.900);
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+
+.header h1,
+.header p {
     text-align: center;
-    margin: 0;
-    padding: 16px 0px;
-}
-
-button.btn-add, .add-list {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background-color: rgb(193, 255, 236);
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 32px;
-    margin: auto;
-}
-
-button.btn-add:hover, .add-list:hover {
-    background-color: #9affe1;
-}
-
-form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-    visibility: collapse;
-    margin: 16px 0px;
-}
-form{
-    background-color: rgba(165, 42, 42, 0.300);
-    padding: 12px 0px;
-}
-label{
-    color: brown;
+    color: whitesmoke;
     font-weight: 900;
 }
-input[type="text"], input[type="number"] {
-    width: 12rem;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-    border-radius: 3px;
-    border: 1px solid brown;
-    height: 1.2rem;
-    color: brown;
-}
-input[type='radio']:after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: #d1d3d1;
-    content: '';
-    display: inline-block;
-    border: 2px solid white;
+
+.form-sidebar {
+    grid-area: 2/1/3/2;
+    background-color: rgba(165, 42, 42, 0.900);
+    border-bottom-left-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    padding-top: 2.5rem;
 }
 
-input[type='radio']:checked:after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
+.form-sidebar label {
+    color: whitesmoke;
+    font-weight: 900;
+}
+
+.form-sidebar div {
+    margin: 1.2rem 0px;
+}
+input[type="text"], input[type="number"]{
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid salmon;
+    width: 16rem;
+    padding: 0.3rem;
+    color: #ca2222;
+    font-weight: bold;
+}
+.switch {
     position: relative;
-    background-color: #d87093;
-    content: '';
     display: inline-block;
-    border: 2px solid white;
+    width: 90px;
+    height: 34px;
 }
-table{
-    width: 95%;
-    margin: auto;
+
+.switch input {
+    display: none;
 }
-thead{
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: -8px;
+    left: 60px;
+    right: -60px;
+    bottom: 8px;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2ab934;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.slider:after {
+    content: 'NO';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider:after {
+    content: 'YES';
+}
+
+/*--------- END --------*/
+
+button.sub {
+    background-color: rgba(0, 0, 255, 0.400);
+    color: whitesmoke;
+    font-weight: 700;
+    padding: .5rem;
+    border-radius: 8px;
+}
+
+.library-rack {
+    background-color: rgba(255, 255, 255, 0.900);
+    border-bottom-right-radius: 3rem;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+}
+div.books{
+    border: 1px solid red;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 2px 2px 8px 1px black;
+    position: relative;
+    padding-top: 1.5rem;
+}
+div.books h2, h3,h4,h5{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8rem;
+}
+.close{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background-color: red;
     color: #fff;
-    background-color: brown;
-}
-th{
-    padding: 5px 0px;
+    font-weight: 900;
 }
