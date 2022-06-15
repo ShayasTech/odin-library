@@ -41,9 +41,13 @@ function clearForm() {
 }
 function createRack(rackSize, book) {
     let libraryRack = document.querySelector(".library-rack")
+    while (libraryRack.hasChildNodes()) {
+        libraryRack.removeChild(libraryRack.firstChild);
+    }
     for (let i = 0; i <= rackSize; i++) {
         let divBook = document.createElement("div")
         divBook.classList = "books";
+        divBook.classList.add("div"+i);
         libraryRack.appendChild(divBook);
         //title
         let title = document.createElement("h2");
@@ -59,12 +63,35 @@ function createRack(rackSize, book) {
         pages.textContent = book[i].pages + " Pages";
         //READ or Not
         let read = document.createElement("h5");
+        read.setAttribute("data-read", i);
         divBook.appendChild(read);
-        if(book[i].read == "READ"){
+        read.addEventListener('click', ()=>{
+            if(read.textContent == "READ"){
+                book[i].read = 'Not Read';
+                read.style.color = 'red';
+                read.textContent = book[i].read;
+            }else if(read.textContent == 'Not Read'){
+                book[i].read = "READ";
+                read.style.color = "green";
+                read.textContent = book[i].read;
+            }
+        })
+        if (book[i].read == "READ") {
             read.style.color = "green";
-        }else{
+        } else {
             read.style.color = 'red';
         }
-        read.textContent = book[i]. read;
+        read.textContent = book[i].read;
+        //button
+        let closeBtn = document.createElement("button");
+        closeBtn.classList = "close";
+        closeBtn.textContent = "X";
+        closeBtn.setAttribute("data-close", i);
+        divBook.appendChild(closeBtn);
+        closeBtn.addEventListener("click", () => {
+            let book = document.querySelector(`.div${i}`);
+            book.remove();
+            library.splice(i,1);
+        })
     }
 }
